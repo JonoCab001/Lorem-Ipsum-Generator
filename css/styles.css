@@ -90,7 +90,7 @@ main {
 }
 
 /* Generate Button */
-#Generate {
+#generate {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 1rem;
@@ -103,12 +103,12 @@ main {
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
-#Generate:hover {
+#generate:hover {
     background: #393f92;
     transform: scale(1.05);
 }
 
-#Generate:active {
+#generate:active {
     transform: scale(0.95);
 }
 
@@ -141,7 +141,7 @@ main {
         padding: 15px;
     }
 
-    #Generate {
+    #generate {
         font-size: 0.9rem;
         padding: 8px 16px;
     }

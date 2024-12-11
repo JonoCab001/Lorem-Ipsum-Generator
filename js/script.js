@@ -6,7 +6,7 @@ const tagOptions = [
 // Get DOM Elements
 const optionsContainer = document.querySelector(".options");
 const outputContainer = document.querySelector(".output");
-const tagSelect = document.getElementById("tags");
+const tagsSelect = document.getElementById("tags");
 const paragraphsSlider = document.getElementById("paragraphs");
 const wordsSlider = document.getElementById("words");
 const paragraphsVal = document.getElementById("paragraphsVal");
@@ -19,7 +19,7 @@ function createOptionsUI() {
         const option = document.createElement("option");
         option.value = tag;
         option.textContent = `<${tag}>`;
-        tagSelect.appendChild(option);
+        tagsSelect.appendChild(option);
     });
 
     // Event Listeners for sliders
