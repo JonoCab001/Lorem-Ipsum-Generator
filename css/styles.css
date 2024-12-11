@@ -1,148 +1,231 @@
-/* Using ChatGPT Generate code */
-/* General Reset */
-body, html {
+/* GeeksForGeeks code modified by ChatGPT */
+/* Reset and Global Styles */
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
     box-sizing: border-box;
 }
 
-/* Body Styling */
 body {
-    background: linear-gradient(to right, #4e54c8, #8f94fb);
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #e8f5e9; /* Soft green background for a calming effect */
+    line-height: 1.6;
+    color: #333;
 }
 
-/* Header */
+/* Header Styling */
 header {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 20px;
-    width: 100%;
+    background-color: #ffffff;
+    color: #228B22; /* Forest green for the header text */
     text-align: center;
+    padding: 20px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+    border-bottom: 3px solid #228B22; /* Adds a clean separation */
 }
 
-header h1 {
-    font-size: 2rem;
-    margin: 0;
+h1 {
+    font-size: 32px;
     font-weight: bold;
 }
 
-/* Main Section */
+/* Main Content */
 main {
-    margin-top: 20px;
-    width: 90%;
-    max-width: 800px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 900px; /* Slightly wider layout for modern screens */
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border-left: 5px solid #228B22; /* Adds a sleek border accent */
 }
 
-/* Options Container */
+/* Options Section */
 .options {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
 }
 
-/* Labels */
 .options label {
     display: block;
-    font-size: 1rem;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    color: #444; /* Slightly darker for better readability */
 }
 
-/* Inputs */
-.options input[type="range"] {
+.options input[type="range"],
+.options select,
+.options input[type="number"] {
     width: 100%;
-    margin: 5px 0;
-    accent-color: #646bf0;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f3f3f3; /* Lighter background for form elements */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    color: #222; /* Darker text for better visibility */
+    font-size: 16px;
 }
 
 .options select {
-    width: 100%;
-    padding: 5px;
-    font-size: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    outline: none;
-}
-
-/* Dynamic Value Display */
-.options span {
-    font-size: 1rem;
-    margin-left: 10px;
-    font-weight: bold;
-}
-
-/* Generate Button */
-#generate {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
-    background: #4e54c8;
-    border: none;
-    border-radius: 5px;
+    appearance: none; /* Removes default styling for dropdowns */
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-#generate:hover {
-    background: #393f92;
-    transform: scale(1.05);
+/* Button Styles */
+.options button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #32CD32; /* Bright lime green for buttons */
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-#generate:active {
-    transform: scale(0.95);
+.options button:hover {
+    background-color: #228B22; /* Darker green on hover */
+    transform: scale(1.02); /* Subtle scale effect for better interactivity */
+}
+
+.options button:active {
+    transform: scale(0.98); /* Shrink slightly on click */
 }
 
 /* Output Section */
 .output {
-    margin-top: 20px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    font-size: 1rem;
-    line-height: 1.5;
-    white-space: pre-wrap;
-    color: #fff;
-    overflow: auto;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid #FF6347; /* Tomato red for a highlight */
+    min-height: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #444;
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-y: auto; /* Enables scrolling for longer output */
 }
 
-/* Responsive Design */
+/* Small Devices (Responsive Design) */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5rem;
+    header {
+        padding: 15px 0;
+    }
+
+    h1 {
+        font-size: 24px;
     }
 
     main {
-        padding: 15px;
+        padding: 20px;
     }
 
-    .options {
-        gap: 10px;
-        padding: 15px;
+    .options button {
+        font-size: 16px;
     }
 
-    #generate {
-        font-size: 0.9rem;
-        padding: 8px 16px;
+    .output {
+        padding: 20px;
+        font-size: 14px;
     }
 }
+
+
+/* From GeeksForGeeks */
+/* Styles.css*/
+/*
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+header {
+    background-color: white;
+    color: green;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0px 4px 8px 0px
+        rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 28px;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px
+        rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.options {
+    margin-bottom: 20px;
+}
+
+.options label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.options input[type="range"],
+.options select,
+.options input[type="number"] {
+    width: 100%;
+    padding: 17px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 13px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 4px
+        rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+
+.options select {
+    appearance: none;
+}
+
+.options button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: green;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s
+        ease;
+}
+
+.options button:hover {
+    background-color: rgb(20, 107, 20);
+}
+
+.output {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid crimson;
+    min-height: 200px;
+    box-shadow: 5px 5px 15px 5px
+        rgba(0, 0, 0, 0.2);
+    color: #333;
+}   
+*/
